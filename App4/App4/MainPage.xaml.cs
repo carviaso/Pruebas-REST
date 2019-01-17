@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Banking.App.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Newtonsoft.Json;
-using Banking.App.Models;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Diagnostics;
 
 namespace App4
 {
@@ -34,9 +34,21 @@ namespace App4
             Auth_Login login = new Auth_Login();
             login.Email = txtUser.Text;
             login.Password = txtPass.Text;
-            Debug.WriteLine(@"El valor de: login");
+            Debug.WriteLine(@"El valor de: $login");
 
-            var json = JsonConvert.SerializeObject(login);
+
+            Employee employee = new Employee
+            {
+                FirstName = "Jalpesh",
+                LastName = "Vadgama"
+            };
+
+            string jsonString = JsonConvert.SerializeObject(employee);
+            Console.WriteLine(jsonString);
+
+
+
+            var json = JsonConvert.SerializeObject(employee);
             Debug.WriteLine(@"El valor de: json");
             var context = new StringContent(json, Encoding.UTF8, "application /json");
 
@@ -48,5 +60,13 @@ namespace App4
 
 
         }
+
+        [Serializable]
+        public class Employee
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+        }
+
     }
 }
