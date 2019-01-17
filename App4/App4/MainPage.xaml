@@ -6,9 +6,38 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
+        <Label Text="Welcome to Login!" 
+           HorizontalOptions="CenterAndExpand"
            VerticalOptions="CenterAndExpand" />
+        
+        
+        <TableView VerticalOptions="Start" HorizontalOptions="Start">
+            <TableRoot>
+                <TableSection Title="Ring">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="SeaGreen" >
+                            <Label Text="Usuario" TextColor="DarkKhaki" BackgroundColor="Khaki" />
+                            <Entry Placeholder="txtUser" HorizontalOptions="FillAndExpand" x:Name="txtUser" />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Clave" />
+                            <Entry Placeholder="txtPass" HorizontalOptions="FillAndExpand" x:Name="txtPass" />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Login" x:Name="btnLogin" />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
     </StackLayout>
 
 </ContentPage>

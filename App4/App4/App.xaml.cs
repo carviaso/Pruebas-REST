@@ -7,6 +7,10 @@ namespace App4
 {
     public partial class App : Application
     {
+        //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
+        public static string AzureBackendUrl = "http://localhost:5000";
+        public static string BankingBackendUrl = "https://bankingwebapi.azurewebsites.net";
+
         public App()
         {
             InitializeComponent();
